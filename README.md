@@ -5,14 +5,14 @@ Am ~80% done with my first project so far. Remaining tasks are mostly code clean
 
 Currently experimenting to see whether the CV still holds up under different lighting conditions.
 
-Material covered:
-Loading and displaying images (Chapter 3)
-Coordinate points (Chapter 4)
-Drawing rectangles (Chapter 5)
-Bitwise operations, masking, splitting channels, merging channels, and color spaces (Chapter 6)
-Blurring (Chapter 8)
-Thresholding (Chapter 9)
-Edge Detection (Chapter 10)
-Contours (Chapter 11)
-
-Also used manual thresholding in the program, which 
+__**Material covered:**__
+<ol>
+<li>Loading and displaying images (Chapter 3)</li>
+<li>Using coordinate points (Chapter 4)</li>
+<li>Drawing rectangles (Chapter 5)</li>
+<li>Bitwise operations, masking, splitting/merging channels,  color spaces (Chapter 6)</li>
+<li>Gaussian/Median Blurring, Bilateral Filtering (Chapter 8)</li>
+<li>Simple Thresholding (Chapter 9)</li>
+<li>Canny Edge Detection (Chapter 10)</li>
+<li>Contours (Chapter 11)</li>
+</ol>
