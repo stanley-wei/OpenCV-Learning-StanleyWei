@@ -1,12 +1,6 @@
 from ring_finder import *
-from matplotlib import pyplot as plt
-import numpy as np
-import argparse
-import mahotas
 import cv2
 import cvutils
-import time
-import math
 import mathutils
 
 def main():

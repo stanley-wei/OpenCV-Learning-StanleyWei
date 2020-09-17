@@ -43,17 +43,20 @@ def median_blur_image_copy(image, kernel, num_passes = 1, show_passes = False):
     return image_copy
 
 def find_largest_bounding_box(contours):
-    largest_contour = contours[0]
-    bounding_box = (0, 0, 0, 0)
-    bounding_box_area = 0
-    for (i, c) in enumerate(contours):
-        (x, y, w, h) = cv2.boundingRect(c)
-        area = w * h
-        if area > bounding_box_area:
-            bounding_box_area = area
-            largest_contour = c
-            bounding_box = (x, y, w, h)
-    return largest_contour, bounding_box
+    if len(contours) > 0:
+        largest_contour = contours[0]
+        bounding_box = (0, 0, 0, 0)
+        bounding_box_area = 0
+        for (i, c) in enumerate(contours):
+            (x, y, w, h) = cv2.boundingRect(c)
+            area = w * h
+            if area > bounding_box_area:
+                bounding_box_area = area
+                largest_contour = c
+                bounding_box = (x, y, w, h)
+        return largest_contour, bounding_box
+    else:
+        return contours, (0, 0, 0, 0)
 
 def apply_mask(image, mask, show_result = False):
     masked_image = cv2.bitwise_and(image, image, mask = mask)
