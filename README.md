@@ -1,7 +1,7 @@
 # OpenCV-Learning-StanleyWei
  Personal repository for learning/practicing basic OpenCV.
 
-Am ~80% done with my first project so far. Remaining tasks are mostly code cleanup/reorganization, commenting, testing + refinement, as well as some other tests I want to run that aren't really part of the main assignment (e.g. identifying the distance fromt the rings, angle of the rings).
+Am ~80% done with my first project so far. Remaining tasks are mostly code cleanup/reorganization, commenting, testing + refinement, as well as some other tests I want to run that aren't really part of the main assignment (e.g. identifying the distance from the rings).
 
 Currently experimenting to see whether the CV still holds up under different lighting conditions.
 
