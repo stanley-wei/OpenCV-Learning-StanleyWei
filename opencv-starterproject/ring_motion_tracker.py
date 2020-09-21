@@ -18,7 +18,7 @@ def main():
 
     while True:
         read, frame = video_capture.read()
-        frame = frame[0:405, 240:640] #cut out most of video to improve framerate
+        frame = frame[50:405, 240:520] #cut out most of video to improve framerate
         #frame = frame[0:405, 0:720] #full video frame here
         if not read:
             print("Camera could not be read")
