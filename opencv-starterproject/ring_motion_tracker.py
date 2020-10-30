@@ -8,7 +8,7 @@ def main():
     frameHeight = 336
 
     #OBS camera port is 4 when the webcam is connected, 2 otherwise
-    video_capture = cv2.VideoCapture(2)
+    video_capture = cv2.VideoCapture(4)
     video_capture.set(3, frameWidth)
     video_capture.set(4, frameHeight)
 
