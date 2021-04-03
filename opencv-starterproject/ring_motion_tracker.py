@@ -7,7 +7,8 @@ def main():
     frameWidth = 576
     frameHeight = 336
 
-    #OBS camera port is 4 when the webcam is connected, 2 otherwise
+    #OBS camera port is 4 for obs virtualcam when the webcam is connected, 2 otherwise
+    #microsoft webcam is 2
     video_capture = cv2.VideoCapture(4)
     video_capture.set(3, frameWidth)
     video_capture.set(4, frameHeight)

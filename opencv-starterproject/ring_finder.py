@@ -51,7 +51,7 @@ def find_bounding_box(image, contours, draw_box = True, show_images = False):
 
     drawn_ring_contours = cvutils.draw_contours(image, largest_contour)
     if draw_box is True:
-        cv2.rectangle(drawn_ring_contours, bounding_box_topleft, bounding_box_bottomright, (0, 0, 255), 2)
+        cv2.rectangle(drawn_ring_contours, bounding_box_topleft, bounding_box_bottomright, (0, 0, 255), 30)
     if show_images is True:
         cv2.imshow("Contours", drawn_ring_contours)
 
@@ -62,7 +62,7 @@ def process_image(image, blur_passes = 1, saturation_blur = True, show_images = 
 
     #Tried applying a blur to the original image here to improve accuracy,
     #but it doesn't significantly affect the final result or time elapsed.
-    image_copy = cvutils.median_blur(image, 9, num_passes = blur_passes, show_passes = show_images)
+    image_copy = cvutils.median_blur(image, 15, num_passes = blur_passes, show_passes = show_images)
 
     hsv_image = cv2.cvtColor(image_copy, cv2.COLOR_BGR2HSV)
     if show_images is True:
@@ -75,11 +75,11 @@ def process_image(image, blur_passes = 1, saturation_blur = True, show_images = 
     # I found that applying blurs multiple times often was much better for reducing noise than just running it once.
     # Note: not using median_blur_image_copy because i prefer this way (it's easier to read)
     blurred_H = H.copy()
-    blurred_H = cvutils.median_blur(blurred_H, 9, num_passes = blur_passes, show_passes = show_images)
+    # blurred_H = cvutils.median_blur(blurred_H, 9, num_passes = blur_passes, show_passes = show_images)
 
     blurred_S = S.copy()
-    if saturation_blur is True:
-        blurred_S = cvutils.median_blur(blurred_S, 9, num_passes = blur_passes, show_passes = show_images)
+    # if saturation_blur is True:
+        # blurred_S = cvutils.median_blur(blurred_S, 9, num_passes = blur_passes, show_passes = show_images)
 
     # this doesn't serve any major purpose, it's just easier to see the cropped parts on a white background
     white_background = blurred_H.copy()
