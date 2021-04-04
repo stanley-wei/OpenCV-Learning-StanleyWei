@@ -8,38 +8,11 @@ import time
 import math
 import mathutils
 
-def find_ring_angle(width, height):
-    if width > height:
-        inches_per_pixel = 5.0 / width
-        ratio = height/width
-    else:
-        inches_per_pixel = 5.0 / height
-        ratio = width/height
-
-    if 1.05 > ratio > 0.95: # when the ring is perfectly upright
-        ring_angle = math.pi/2.0
-    elif 0.2 > ratio > 0.1: # when the ring is nearly flat
-        ring_angle = 0
-    else:
-        inches_height = height * inches_per_pixel
-        c_constant = 0.75 - inches_height
-        sine_plus, sine_minus = mathutils.quadratic_formula(-0.75, 5, c_constant)
-
-        if 1 > sine_plus > -1:
-            ring_angle_sine = sine_plus
-        else:
-            ring_angle_sine = sine_minus
-
-        ring_angle = math.asin(ring_angle_sine)
-
-    ring_angle_degrees = ring_angle * (180.0 / math.pi)
-    return ring_angle, ring_angle_degrees
-
-def find_ring(image, blur_passes = 1, saturation_blur = True, show_images = False):
+def find_goal(image, blur_passes = 1, saturation_blur = True, show_images = False):
     image_copy = image.copy()
     image_with_mask, processed_image = process_image(image_copy, blur_passes = blur_passes, saturation_blur = saturation_blur, show_images = show_images)
 
-    canny, contours = find_ring_edges(image_with_mask, show_images = show_images)
+    canny, contours = find_goal_edges(image_with_mask, show_images = show_images)
     drawn_contours = cvutils.draw_contours(image, contours, show_image = show_images)
 
     return contours, drawn_contours
@@ -106,7 +79,7 @@ def process_image(image, blur_passes = 1, saturation_blur = True, show_images = 
 
     return image_with_mask, image_copy
 
-def find_ring_edges(image, show_images = False):
+def find_goal_edges(image, show_images = False):
     canny = cv2.Canny(image, 10, 250)
     if show_images is True:
         cv2.imshow("Canny", canny)
