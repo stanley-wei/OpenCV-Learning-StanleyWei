@@ -1,9 +1,7 @@
 # OpenCV-Learning-StanleyWei
- Personal repository for learning/practicing basic OpenCV.
+ Personal repository for learning/practicing basic OpenCV and object detection.
 
-Am ~70% done with my first project so far, though it already fulfills the project requirements. Remaining tasks are mostly code cleanup/reorganization, commenting, testing + refinement, as well as some other tests I want to run that aren't really part of the main assignment (e.g. identifying the distance from the rings).
-
-Currently experimenting to see whether the CV still holds up under different lighting conditions.
+opencv-starterproject is currently in use on our FTC robot for ring detection in the autonomous portion of the game. Currently experimenting to see whether the CV still holds up under different lighting conditions.
 
 __**Material covered:**__
 <ol>
