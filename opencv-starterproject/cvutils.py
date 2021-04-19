@@ -92,3 +92,12 @@ def simple_threshold(image, min_val = -1, max_val = 256, min_set = 0, max_set = 
     if show_thresh is True:
         cv2.imshow("Thresholded Image", thresh)
     return thresh
+
+def find_edges(image, show_images = False):
+    canny = cv2.Canny(image, 10, 250)
+    if show_images is True:
+        cv2.imshow("Canny", canny)
+
+    (contours, _) = cv2.findContours(canny.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    return canny, contours

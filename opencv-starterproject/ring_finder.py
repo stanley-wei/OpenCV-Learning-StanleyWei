@@ -39,7 +39,7 @@ def find_ring(image, blur_passes = 1, saturation_blur = True, show_images = Fals
     image_copy = image.copy()
     image_with_mask, processed_image = process_image(image_copy, blur_passes = blur_passes, saturation_blur = saturation_blur, show_images = show_images)
 
-    canny, contours = find_ring_edges(image_with_mask, show_images = show_images)
+    canny, contours = cvutils.find_edges(image_with_mask, show_images = show_images)
     drawn_contours = cvutils.draw_contours(image, contours, show_image = show_images)
 
     return contours, drawn_contours
@@ -105,12 +105,3 @@ def process_image(image, blur_passes = 1, saturation_blur = True, show_images = 
     image_with_mask = cvutils.apply_mask(image, mask, show_result = show_images)
 
     return image_with_mask, image_copy
-
-def find_ring_edges(image, show_images = False):
-    canny = cv2.Canny(image, 10, 250)
-    if show_images is True:
-        cv2.imshow("Canny", canny)
-
-    (contours, _) = cv2.findContours(canny.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-
-    return canny, contours
